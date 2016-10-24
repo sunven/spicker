@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="stylesheet" type="text/css" href="framework7.material.css">
+</head>
+
+<body>
+    <input id="picker-input" type="text" readonly="" name="" value="ddd">
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="picker.js"></script>
+    <!-- <script type="text/javascript" src="framework7.js"></script> -->
+    <script type="text/javascript">
+    var myApp = new Framework7();
+    var pickerDescribe = myApp.picker({
+        input: '#picker-input',
+        rotateEffect: true,
+        cols: [{
+            textAlign: 'left',
+            values: ('Super Lex Amazing Bat Iron Rocket Lex Cool Beautiful Wonderful Raining Happy Amazing Funny Cool Hot').split(' ')
+        }, {
+            values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
+        }, ]
+    });
+    pickerDescribe.open(); // open Picker
+    </script>
+</body>
+
+</html>

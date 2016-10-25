@@ -169,10 +169,7 @@
             }
         }
     }
-    $.fn.animationEnd = function(callback) {
-        __dealCssEvent.call(this, ['webkitAnimationEnd', 'animationend'], callback);
-        return this;
-    };
+
     $.fn.transitionEnd = function(callback) {
         __dealCssEvent.call(this, ['webkitTransitionEnd', 'transitionend'], callback);
         return this;
@@ -564,10 +561,6 @@ Device/OS Detection
             if ($('.popup.modal-in').length > 0 && defaults.popupCloseByOutside)
                 $.closeModal('.popup.modal-in');
         }
-
-
-
-
     }
     $(document).on('click', ' .modal-overlay, .popup-overlay, .close-popup, .open-popup, .close-picker', handleClicks);
     var defaults =  $.modal.prototype.defaults  = {

@@ -4,39 +4,22 @@
 <head>
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <!-- <link rel="stylesheet" type="text/css" href="framework7.material.css"> -->
     <link rel="stylesheet" type="text/css" href="sm.css">
 </head>
-
 <body>
     <div class="views">
         <input id="picker" type="text" readonly="" name="" value="ddd">
     </div>
     <script src="http://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
     <script type="text/javascript" src="spicker1.js"></script>
-    <!-- <script type="text/javascript" src="picker.js"></script> -->
-    <!-- <script type="text/javascript" src="framework7.js"></script> -->
     <script type="text/javascript">
-    // var myApp = new Framework7();
-    // var pickerDescribe = myApp.picker({
-    //     input: '#picker-input',
-    //     rotateEffect: true,
-    //     cols: [{
-    //         textAlign: 'left',
-    //         values: ('Super Lex Amazing Bat Iron Rocket Lex Cool Beautiful Wonderful Raining Happy Amazing Funny Cool Hot').split(' ')
-    //     }, {
-    //         values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
-    //     }, ]
-    // });
-    // pickerDescribe.open(); // open Picker
-    // 
     $("#picker").picker({
-  //       toolbarTemplate: '<header class="bar bar-nav">\
-  // <button class="button button-link pull-left">按钮</button>\
-  // <button class="button button-link pull-right close-picker">确定</button>\
-  // <h1 class="title">标题</h1>\
-  // </header>',
-  cols: [{ textAlign: 'left', values: ('Super Lex Amazing Bat Iron Rocket Lex Cool Beautiful Wonderful Raining Happy Amazing Funny Cool Hot').split(' ') }, { values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ') }, ]
+        cols: [{
+            textAlign: 'left',
+            values: ('Super Lex Amazing Bat Iron Rocket Lex Cool Beautiful Wonderful Raining Happy Amazing Funny Cool Hot').split(' ')
+        }, {
+            values: ('Man Luthor Woman Boy Girl Person Cutie Babe Raccoon').split(' ')
+        }, ]
 
     });
     </script>

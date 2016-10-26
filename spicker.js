@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * =====================================================
  * SUI Mobile - http://m.sui.taobao.org/
  *
@@ -641,6 +641,7 @@ Device/OS Detection
                 p.params.onChange(p, p.value, p.displayValue);
             }
             if (p.input && p.input.length > 0) {
+                //debugger;
                 $(p.input).val(p.params.formatValue ? p.params.formatValue(p, p.value, p.displayValue) : p.value.join(' '));
                 $(p.input).trigger('change');
             }

@@ -582,6 +582,8 @@ Device/OS Detection
     var Picker = function (params) {
         var p = this;
         var defaults = {
+            dataFieldValue:"value",
+            dataFieldText:"text",
             updateValuesOnMomentum: false,
             updateValuesOnTouchmove: true,
             rotateEffect: false,
@@ -625,24 +627,22 @@ Device/OS Detection
         };
         p.updateValue = function () {
             var newValue = [];
-            var newDisplayValue = [];
             for (var i = 0; i < p.cols.length; i++) {
                 if (!p.cols[i].divider) {
-                    newValue.push(p.cols[i].value);
-                    newDisplayValue.push(p.cols[i].displayValue);
+                    //不是分割线
+                    newValue.push(p.cols[i]);
                 }
             }
             if (newValue.indexOf(undefined) >= 0) {
                 return;
             }
             p.value = newValue;
-            p.displayValue = newDisplayValue;
             if (p.params.onChange) {
-                p.params.onChange(p, p.value, p.displayValue);
+                p.params.onChange(p, p.value);
             }
             if (p.input && p.input.length > 0) {
-                //debugger;
-                $(p.input).val(p.params.formatValue ? p.params.formatValue(p, p.value, p.displayValue) : p.value.join(' '));
+                //$(p.input).val(p.params.formatValue ? p.params.formatValue(p, p.value) : p.value.join(' '));
+                $(p.input).val(p.params.formatValue ? p.params.formatValue(p, p.value) : "aa");
                 $(p.input).trigger('change');
             }
         };
@@ -951,6 +951,7 @@ Device/OS Detection
         $(window).on('resize', resizeCols);
 
         // HTML Layout
+        // 创建picker中每一项的html
         p.columnHTML = function (col, onlyItems) {
             var columnItemsHTML = '';
             var columnHTML = '';
@@ -967,6 +968,7 @@ Device/OS Detection
             }
             return onlyItems ? columnItemsHTML : columnHTML;
         };
+        //创建整个picker的html
         p.layout = function () {
             var pickerHTML = '';
             var pickerClass = '';

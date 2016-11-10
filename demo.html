@@ -15,31 +15,48 @@
 </head>
 
 <body>
-    <input id="picker" type="text" readonly="" name="" value="ddd">
+    <input id="picker" type="text" readonly="" name="" value="dd">
     <script src="https://apps.bdimg.com/libs/zepto/1.1.4/zepto.min.js"></script>
+    <!-- <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script> -->
     <script type="text/javascript" src="spicker.js"></script>
     <script type="text/javascript">
-    var p=$("#picker").picker({
-        cols: [{
-            textAlign: 'left',
-            values: [{
-                value: "A",
-                text: "A"
-            }, {
-                value: "B",
-                text: "B"
-            }],
-        }, {
-            textAlign: 'left',
-            values: [{
-                value: "A1",
-                text: "A1"
-            }, {
-                value: "A2",
-                text: "A2"
-            }],
-        }]
+    $(function() {
+        var p = $("#picker").picker({
+            //dataFieldValue: "id",
+            //dataFieldText: "name",
+            cols: [{
+                textAlign: 'left',
+                values: [{
+                    text: 1,
+                    value: 1
+                }, {
+                    text: 1,
+                    value: 1
+                }],
+            }]
 
+        });
+return;
+
+        $.ajax({
+            url: "http://192.168.9.46:1008/UserHandler.ashx?Method=GetLocationList",
+            data: {},
+            type: 'post',
+            dataType: "jsonp",
+            jsonp: 'jsoncallback',
+            success: function(data) {
+                //console.dir(data);
+                var p = $("#picker").picker({
+                    dataFieldValue: "id",
+                    dataFieldText: "name",
+                    cols: [{
+                        textAlign: 'left',
+                        values: data.ResultData,
+                    }]
+
+                });
+            }
+        });
     });
     </script>
 </body>
